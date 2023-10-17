@@ -1,21 +1,16 @@
 
 package ma.projet.util;
 
-/**
- *
- * @author YahyaMrd
- */
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class EmailSender {
-
-    static final String username = "your email";
-    static final String password = "your password";
+ static final String username = "cremo1234youss@gmail.com";
+    static final String password = "1234567890AZE@a";
     static final String host = "smtp.gmail.com";
-    static final String port = "587";
+    static final String port = "465";
 
     
 
@@ -47,17 +42,11 @@ public class EmailSender {
     }
 
     public static void main(String[] args) {
-        // Exemple d'utilisation de la classe EmailSender
-        String username = "votre.email@gmail.com";
-        String password = "votreMotDePasse";
-        String host = "smtp.gmail.com"; // ou tout autre serveur SMTP que vous utilisez
-        String port = "587"; // Port SMTP, par exemple, 587 pour TLS
-        
-        
-        String recipient = "mouridyahya180@gmail.com";
+        String recipient = "zrayouilkarima2003@gmail.com";
         String subject = "test sendMailer";
         String messageBody = "hello";
 
         EmailSender.sendEmail(recipient, subject, messageBody);
     }
 }
+   
