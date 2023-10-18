@@ -1,12 +1,10 @@
 <%-- 
-    Document   : welcome
-    Created on : Oct 11, 2023, 5:58:35 AM
+    Document   : SendEmail
+    Created on : Oct 11, 2023, 7:58:21 AM
     Author     : hp
 --%>
-
-<%@page import="ma.projet.entities.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="ma.projet.entities.Client"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,15 +20,13 @@
              c = (Client) sessio.getAttribute("client");
         }
         else{
-            response.sendRedirect("Authentification.jsp");
+            response.sendRedirect("login.jsp");
         }
         %>
-        <h1>Welcome MR : <%= c.getNom() + " " + c.getPrenom()%> </h1>
+        <h1>Bonjour : <%= c.getNom() + " " + c.getPrenom()%> </h1>
         <form action="deconnexion">
-            <input type="submit" value="deconnixion">
+            <input type="submit" value="Deconnixion">
         </form>
 
     </body>
 </html>
-
-

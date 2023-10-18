@@ -19,18 +19,19 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Récuperer le  mot de passe </div>
+                        <div class="card-header"> Vérification </div>
 
                         <div class="card-body">
 
-                            <form method="POST" action="SendEmail">
+                            <form method="POST" action="Verify">
 
 
                                 <div class="row mb-3">
-                                    <label for="email"  class="col-md-4 col-form-label text-md-end">Email</label>
-
+                                    <label class="control-label">Code de validation:</label>
+                                    
                                     <div class="col-md-6">
-                                        <input id="email" type="email"  class="form-control" name="email" value="" required  >
+                                        <input type="number" name="code" class="form-control" value="" required  />
+                                     
 
 
                                     </div>
@@ -42,8 +43,8 @@
                               
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" value="Envoyer" class="btn btn-primary">
-                                            Envoyer
+                                        <button type="submit" value="valider" class="btn btn-primary">
+                                            Valider
                                         </button>
                                     </div>
                                 </div>
@@ -58,3 +59,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>
+
+
+        

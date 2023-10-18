@@ -6,25 +6,24 @@
 package ma.projet.controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import ma.projet.entities.Client;
 import ma.projet.service.ClientService;
-
 import ma.projet.util.Util;
 
 /**
  *
  * @author hp
  */
-@WebServlet(name = "Inscription", urlPatterns = {"/Inscription"})
-public class Inscription extends HttpServlet {
+@WebServlet(name = "Auth", urlPatterns = {"/Auth"})
+public class Auth extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,24 +36,30 @@ public class Inscription extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String email = request.getParameter("email");
-        String dateStr = request.getParameter("date");
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.parse(dateStr, dateFormatter);
-        Date date = java.sql.Date.valueOf(localDate);
-        String password =request.getParameter("password");
-
-        ClientService cs = new ClientService();
-        cs.create(new Client(nom, prenom, date, email, password));
         
+        response.setContentType("text/html;charset=UTF-8");
+        String email = request.getParameter("email");
+        String password =request.getParameter("password");
+        
+        ClientService cs = new ClientService();
+        Client clt = cs.getByEmail(email);
+ 
 
-        response.sendRedirect("login.jsp?email=" + email);
+        if (clt!= null && clt.getPassword().equals(Util.MD5(password))) {
+                HttpSession session = request.getSession();
+                session.setAttribute("client", clt);
+                session.setAttribute("email", email);
+                cs.update(clt);
+                // Redirect to "welcome.jsp" even if the session already exists.
+                response.sendRedirect("welcome.jsp");
+        
+        } else {
+           response.sendRedirect("login.jsp?err=400");
+        }
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

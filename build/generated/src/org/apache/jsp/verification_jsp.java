@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class sendEmail_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class verification_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -58,18 +58,19 @@ public final class sendEmail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"row justify-content-center\">\n");
       out.write("                <div class=\"col-md-8\">\n");
       out.write("                    <div class=\"card\">\n");
-      out.write("                        <div class=\"card-header\">Récuperer le  mot de passe </div>\n");
+      out.write("                        <div class=\"card-header\"> Vérification </div>\n");
       out.write("\n");
       out.write("                        <div class=\"card-body\">\n");
       out.write("\n");
-      out.write("                            <form method=\"POST\" action=\"SendEmail\">\n");
+      out.write("                            <form method=\"POST\" action=\"Verify\">\n");
       out.write("\n");
       out.write("\n");
       out.write("                                <div class=\"row mb-3\">\n");
-      out.write("                                    <label for=\"email\"  class=\"col-md-4 col-form-label text-md-end\">Email</label>\n");
-      out.write("\n");
+      out.write("                                    <label class=\"control-label\">Code de validation:</label>\n");
+      out.write("                                    \n");
       out.write("                                    <div class=\"col-md-6\">\n");
-      out.write("                                        <input id=\"email\" type=\"email\"  class=\"form-control\" name=\"email\" value=\"\" required  >\n");
+      out.write("                                        <input type=\"number\" name=\"code\" class=\"form-control\" value=\"\" required  />\n");
+      out.write("                                     \n");
       out.write("\n");
       out.write("\n");
       out.write("                                    </div>\n");
@@ -83,8 +84,8 @@ public final class sendEmail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                              \n");
       out.write("                                <div class=\"row mb-0\">\n");
       out.write("                                    <div class=\"col-md-6 offset-md-4\">\n");
-      out.write("                                        <button type=\"submit\" value=\"Envoyer\" class=\"btn btn-primary\">\n");
-      out.write("                                            Envoyer\n");
+      out.write("                                        <button type=\"submit\" value=\"valider\" class=\"btn btn-primary\">\n");
+      out.write("                                            Valider\n");
       out.write("                                        </button>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
@@ -99,6 +100,9 @@ public final class sendEmail_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        ");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

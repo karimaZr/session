@@ -1,35 +1,62 @@
-<%-- 
-    Document   : list_jstl
-    Created on : Oct 11, 2023, 9:00:44 AM
-    Author     : hp
---%>
+zrayouilkarima2003@gmail.com
+package ma.projet.util;
 
- 
-<!DOCTYPE html>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>     
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Question</title>
-    </head>
-    <body>
-       <c:forEach var="entry" begin="${2}" end="${30}"> 
-		<c:set var="v" value ="${entry}" />
-		<c:set var="etat" value ="${0}" />
-		<c:forEach var="item" begin="${2}" end="${30/2}">
-			<c:if test="${v % item == 0 && v != item}">
-				<c:set var="etat" value ="${1}" />
-			</c:if>
-		
-		</c:forEach> 
-	
-		<c:if test="${etat == 0}">
-			<c:out value="${entry}"/> Nombre premier <br />
-		</c:if>
-		<c:if test="${etat != 0}">
-			<c:out value="${entry}"/> Nombre non premier <br />
-		</c:if>
-	</c:forEach>
- 
-    </body>
-</html>
+import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+public class EmailSender {
+   
+    static final String username = "cremo1234youss@gmail.com";
+    static final String password = "1234567890AZE@a";
+    static final String host = "smtp.gmail.com";
+    static final String port = "587";
+
+    
+
+    public static void sendEmail(String recipient, String subject, String messageBody) {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+            message.setSubject(subject);
+            message.setText(messageBody);
+
+            Transport.send(message);
+            System.out.println("Email sent successfully to " + recipient);
+        } catch (MessagingException e) {
+            System.err.println("Failed to send email: " + e.getMessage());
+        }
+    }
+    public static void main(String[] args) {
+       
+        
+        
+        String recipient = "zrayouilkarima2003@gmail.com";
+        String subject = "test sendMailer";
+        String messageBody = "hello";
+
+        EmailSender.sendEmail(recipient, subject, messageBody);
+    }
+
+}
+
+
+
+
+    
+
+   

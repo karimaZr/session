@@ -26,8 +26,7 @@ public class ClientService implements IDao<Client>{
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            o.setPassword(Util.MD5(o.getPassword()));
-            
+            o.setPassword(Util.MD5(o.getPassword()));            
             session.save(o);
             tx.commit();
             return true;
@@ -108,37 +107,51 @@ public class ClientService implements IDao<Client>{
 
 
 
-        public Client findById(int id){
-            Client employee= null;
+        
+         @Override
+    public Client findById(int id) {
+       Client client = null;
         Session session = null;
         Transaction tx = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            employee= (Client) session.get(Client.class, id);
+            client = (Client) session.get(Client.class, id);
             tx.commit();
-            return employee;
+            return client;
         } catch (HibernateException ex) {
             if (tx != null) {
                 tx.rollback();
             }
-            return employee;
+            return client;
         } finally {
             if (session != null) {
                 session.close();
             }
         }
     }
-        @Override
-        public  Client getByEmail(String email){
-            Client c = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        c = (Client) session.createQuery("from Client where email = ?").setParameter(0, email).uniqueResult();
-        session.getTransaction().commit();
-        return c;
-
-        } 
+    
+public Client getByEmail(String email) {
+       Client client = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            client =  (Client) session.createQuery("from Client where email = :email ").setParameter("email", email).uniqueResult();
+            tx.commit();
+            return client;
+        } catch (HibernateException ex) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            return client;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+}
     }
 
 

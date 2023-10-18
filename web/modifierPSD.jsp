@@ -3,7 +3,8 @@
     Created on : Oct 11, 2023, 7:58:21 AM
     Author     : hp
 --%>
-
+<%@page import="ma.projet.service.EmployeeService"%>
+<%@page import="ma.projet.entities.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,31 +20,30 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Récuperer le  mot de passe </div>
+                        <div class="card-header">Modifier  le  mot de passe </div>
 
                         <div class="card-body">
 
-                            <form method="POST" action="SendEmail">
-
-
+                            <form method="POST" action="Update">
                                 <div class="row mb-3">
-                                    <label for="email"  class="col-md-4 col-form-label text-md-end">Email</label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email"  class="form-control" name="email" value="" required  >
-
-
+                                     <label class="col-md-4 col-form-label text-md-end">Password :</label>
+                                  <div class="col-md-6">
+                                       <input type="password" name="password" class="form-control" required   />
                                     </div>
- 
-
+                                </div>
+                                 <div class="row mb-3">
+                                     <label class="col-md-4 col-form-label text-md-end">Confirmer password :</label>                                  
+                                  <div class="col-md-6">
+                                      <input type="password" name="passwordConf" class="form-control"  required />
+                                    </div>
                                 </div>
 
                                 <p class="bg-danger"><%= (request.getParameter("msg") != null ? request.getParameter("msg") : "")%></p>
                               
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" value="Envoyer" class="btn btn-primary">
-                                            Envoyer
+                                        <button type="submit" value="" class="btn btn-primary">
+                                            Valider
                                         </button>
                                     </div>
                                 </div>
@@ -58,3 +58,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>
+

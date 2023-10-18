@@ -11,6 +11,7 @@ import ma.projet.entities.Employee;
 import ma.projet.service.ClientService;
 import ma.projet.service.EmployeeService;
 import ma.projet.util.HibernateUtil;
+import ma.projet.util.Util;
 import sun.applet.Main;
 
 /**
@@ -24,6 +25,11 @@ public class Test {
         ClientService cs=new ClientService();
         Employee emp1=new Employee("kbdbc;sc","gcskcs");
         es.create(emp1);
-        cs.create(new Client("karima","Zrayouil",new Date(2022,12,12),";wnx",",wnw"));
+        cs.create(new Client("karima","Zrayouil",new Date(2022,12,12),"cremo1234youss@gmail.com",",wnw"));
+         Client client=cs.getByEmail("cremo1234youss@gmail.com");
+         System.out.println(client);
+         String password =",wnw";
+         boolean test= client.getPassword().equals(Util.MD5(password));
+         System.out.println(test);
     }
 }

@@ -7,10 +7,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class EmailSender {
- static final String username = "cremo1234youss@gmail.com";
+   
+    static final String username = "cremo1234youss@gmail.com";
     static final String password = "1234567890AZE@a";
     static final String host = "smtp.gmail.com";
-    static final String port = "465";
+    static final String port = "587";
 
     
 
@@ -40,13 +41,22 @@ public class EmailSender {
             System.err.println("Failed to send email: " + e.getMessage());
         }
     }
-
     public static void main(String[] args) {
+       
+        
+        
         String recipient = "zrayouilkarima2003@gmail.com";
         String subject = "test sendMailer";
         String messageBody = "hello";
 
         EmailSender.sendEmail(recipient, subject, messageBody);
     }
+
 }
+
+
+
+
+    
+
    

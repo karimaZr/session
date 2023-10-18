@@ -57,4 +57,9 @@ public class Client  extends User{
         this.datenaissance = datenaissance;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" + "nom=" + nom + ", prenom=" + prenom + ", datenaissance=" + datenaissance + '}';
+    }
+
 }

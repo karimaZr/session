@@ -21,18 +21,18 @@
                     <div class="card">
                         <div class="card-header">Connexion</div>
                         <div class="card-body">
-                            <form action="auth" method="POST">
+                            <form action="Auth" method="POST">
                                 <div class="row mb-3">
-                                    <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
+                                    <label for="email" class="col-md-4 col-form-label text-md-end">Email </label>
                                     <div class="col-md-6">
-                                        <input id="email" type="email"  name="email"  required >
+                                        <input id="email" type="email" class="form-control" name="email"  required >
 
 
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-end">Mot de passe</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password" class="form-control" name="password" required >
@@ -41,25 +41,14 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" >
-
-                                            <label class="form-check-label" for="remember">
-                                                Remember Me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                         
-                                    <input class="btn btn-primary" type="submit" value="Connect">
-                                    
-                                      <a class="btn btn-link" href="SendEmail.jsp">Mot de passe oblié</a>
-                                      <a class="btn btn-link" href="Inscription.jsp">Créer un nouveau compt</a>
+                                      
+                                            
+                                    <input class="btn btn-primary" type="submit" value="Connecter">
+                                       
+                                      <a class="btn btn-link" href="sendEmail.jsp">Mot de passe oublié</a>
+                                      <a class="btn btn-link" href="Inscription.jsp">S'inscrire</a>
 
                                    
                                         

@@ -24,8 +24,4 @@ public class Util {
             return null;
         }
     }
-
-    public static String md5(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
