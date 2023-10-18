@@ -4,7 +4,8 @@ L'authentification est la première étape pour accéder à votre compte. Pour v
 # Inscription
 Si vous n'avez pas encore de compte, vous pouvez vous inscrire rapidement et facilement. Il vous suffit de fournir quelques informations personnelles et de choisir un nom d'utilisateur et un mot de passe. 
 ![image](https://github.com/karimaZr/session/assets/128175856/59e3f7c8-28a2-461e-be46-c2bf29742b68)
-Une fois inscrit, vous aurez accès à la page welcome.
+Une fois inscrit, vous aurez accès à la page welcome en se connectant.
+![image](https://github.com/karimaZr/session/assets/128175856/66f1c81f-61e9-4d89-95b6-7f97b971e5de)
 ![image](https://github.com/karimaZr/session/assets/128175856/ccf4d52a-1a9b-4591-a5f5-273a179cd607)
 # Mot de passe Oublié
 Si vous avez oublié votre mot de passe, ne vous inquiétez pas. Nous avons prévu une option de récupération de mot de passe. Cliquez sur "Mot de passe oublié" et suivez les instructions pour réinitialiser votre mot de passe en toute sécurité.
